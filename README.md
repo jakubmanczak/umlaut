@@ -1,3 +1,3 @@
 # umlaut
 
-This is a simple script for inserting german umlaut (+ß) characters when holding left alt.
+This is a simple script for inserting german umlaut characters (+ß) when holding left alt.
