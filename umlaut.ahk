@@ -1,7 +1,6 @@
 ; Made by Jakub Mańczak in 2020
 ; manczak.net
 
-; GERMAN SPECIAL CHARACTERS
 !a::Send {U+00E4} ; ä
 !+a::Send {U+00C4} ; Ä
 !u::Send {U+00FC} ; ü
