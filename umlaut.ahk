@@ -1,11 +1,58 @@
 ; Made by Jakub Mańczak in 2020
 ; manczak.net
 
-!a::Send {U+00E4} ; ä
-!+a::Send {U+00C4} ; Ä
-!u::Send {U+00FC} ; ü
-!+u:: Send {U+00DC} ; Ü
-!o:: Send {U+00F6} ; ö
-!+o:: Send {U+00D6} ; Ö
-!s:: Send {U+00DF} ; ß
-!+s:: Send {U+1E9E} ; ẞ
+!a::
+if GetKeyState("CapsLock", "T") = 0
+	send, {U+00E4}
+else if GetKeyState("CapsLock", "T") = 1
+	send, {U+00C4}
+return
+
+!+a::
+if GetKeyState("CapsLock", "T") = 0
+	send, {U+00C4}
+else if GetKeyState("CapsLock", "T") = 1
+	send, {U+00E4}
+return
+
+!o::
+if GetKeyState("CapsLock", "T") = 0
+	send, {U+00F6}
+else if GetKeyState("CapsLock", "T") = 1
+	send, {U+00D6}
+return
+
+!+o::
+if GetKeyState("CapsLock", "T") = 0
+	send, {U+00D6}
+else if GetKeyState("CapsLock", "T") = 1
+	send, {U+00F6}
+return
+
+!u::
+if GetKeyState("CapsLock", "T") = 0
+	send, {U+00FC}
+else if GetKeyState("CapsLock", "T") = 1
+	send, {U+00DC}
+return
+
+!+u::
+if GetKeyState("CapsLock", "T") = 0
+	send, {U+00DC}
+else if GetKeyState("CapsLock", "T") = 1
+	send, {U+00FC}
+return
+
+!s::
+if GetKeyState("CapsLock", "T") = 0
+	send, {U+00DF}
+else if GetKeyState("CapsLock", "T") = 1
+	send, {U+1E9E}
+return
+
+!+s::
+if GetKeyState("CapsLock", "T") = 0
+	send, {U+1E9E}
+else if GetKeyState("CapsLock", "T") = 1
+	send, {U+00DF}
+return
