@@ -1,8 +1,6 @@
 # umlaut
 
-This is a simple script for inserting german umlaut characters (+ß) when holding left alt.
-
-Created to counter the need of using a different keyboard layout.
+A writing utility to help you use german text characters without the need of switching to a german keyboard layout.
 
 Left Alt was chosen in contrast to the right Alt, as the latter is used to insert polish characters in the polish keyboard layout.
 
