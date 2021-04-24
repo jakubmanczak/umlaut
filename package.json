@@ -1,0 +1,24 @@
+{
+  "name": "umlaut",
+  "version": "2.0.0",
+  "author": "jakubmanczak",
+  "description": "A writing utility to help you use german text characters without the need of switching to a german keyboard layout.",
+  "main": "main.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1",
+    "start": "electron ."
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/jakubmanczak/umlaut.git"
+  },
+  "keywords": [],
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/jakubmanczak/umlaut/issues"
+  },
+  "homepage": "https://github.com/jakubmanczak/umlaut#readme",
+  "devDependencies": {
+    "electron": "^12.0.5"
+  }
+}
