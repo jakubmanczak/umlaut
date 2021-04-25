@@ -38,6 +38,9 @@ nav > button {
   transition-duration: 0.1s;
   font-size: 1.2em;
 }
+nav > button:not(:last-of-type) {
+  right: 2rem;
+}
 nav > button:hover {
   background-color: var(--hv);
 }
