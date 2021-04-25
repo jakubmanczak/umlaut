@@ -54,10 +54,12 @@ main button {
   padding: 0.7em;
   display: flex;
   justify-content: space-between;
+  transition-duration: 0.1s;
 }
 main button span {
   font-size: 1.2em;
   font-weight: 900;
+  transition-duration: 0.1s;
 }
 main button span:nth-of-type(1) {
   text-transform: uppercase;
@@ -65,6 +67,16 @@ main button span:nth-of-type(1) {
 }
 main button span:nth-of-type(2) {
   color: var(--ft);
+}
+main button:hover {
+  background-color: var(--fg);
+  cursor: pointer;
+}
+main button:hover span {
+  color: var(--bg);
+}
+main button:hover span:last-of-type {
+  color: var(--hv);
 }
 main p {
   text-align: center;

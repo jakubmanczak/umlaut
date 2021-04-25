@@ -1,6 +1,6 @@
-const { app, BrowserWindow } = require('electron');
+const { app, Tray, Menu, BrowserWindow } = require('electron');
 const path = require('path');
-
+let appIcon;
 // Handle creating/removing shortcuts on Windows when installing/uninstalling.
 if (require('electron-squirrel-startup')) {
   // eslint-disable-line global-require
@@ -10,22 +10,51 @@ if (require('electron-squirrel-startup')) {
 const createWindow = () => {
   // Create the browser window.
   const mainWindow = new BrowserWindow({
-    width: 350,
-    height: 315,
+    width: 750, // 350
+    height: 750, // 315
     frame: false,
-    resizable: false,
+    // resizable: false,
+    title: 'umlaut',
+    icon: './umlaut.ico',
     webPreferences: {
       nodeIntegration: true,
       contextIsolation: false,
       enableRemoteModule: true,
     },
   });
+  mainWindow.setAlwaysOnTop(true);
+  appIcon = new Tray('./umlaut.ico');
+  appIcon.setToolTip('umlaut');
+  let contextMenu = Menu.buildFromTemplate([
+    {
+      label: 'Show App',
+      click: function () {
+        mainWindow.show();
+      },
+    },
+    {
+      label: 'Quit',
+      click: function () {
+        app.isQuiting = true;
+        app.quit();
+      },
+    },
+  ]);
+  appIcon.setContextMenu(contextMenu);
+
+  appIcon.on('click', () => {
+    if (mainWindow.isVisible()) {
+      mainWindow.hide();
+    } else {
+      mainWindow.show();
+    }
+  });
 
   // and load the index.html of the app.
   mainWindow.loadFile(path.join(__dirname, 'index.html'));
 
   // Open the DevTools.
-  // mainWindow.webContents.openDevTools();
+  mainWindow.webContents.openDevTools();
 };
 
 // This method will be called when Electron has finished
