@@ -1,24 +1,58 @@
 {
   "name": "umlaut",
-  "version": "2.0.0",
-  "author": "jakubmanczak",
-  "description": "A writing utility to help you use german text characters without the need of switching to a german keyboard layout.",
-  "main": "main.js",
+  "productName": "umlaut",
+  "version": "1.0.0",
+  "description": "A writing utility to help write german characters without switching keyboard layouts.",
+  "main": "src/index.js",
   "scripts": {
-    "test": "echo \"Error: no test specified\" && exit 1",
-    "start": "electron ."
-  },
-  "repository": {
-    "type": "git",
-    "url": "git+https://github.com/jakubmanczak/umlaut.git"
+    "start": "electron-forge start",
+    "package": "electron-forge package",
+    "make": "electron-forge make",
+    "publish": "electron-forge publish",
+    "lint": "echo \"No linting configured\""
   },
   "keywords": [],
-  "license": "ISC",
-  "bugs": {
-    "url": "https://github.com/jakubmanczak/umlaut/issues"
+  "author": {
+    "name": "jakubmanczak",
+    "email": "j4kubmanczak@gmail.com"
   },
-  "homepage": "https://github.com/jakubmanczak/umlaut#readme",
+  "license": "MIT",
+  "config": {
+    "forge": {
+      "packagerConfig": {},
+      "makers": [
+        {
+          "name": "@electron-forge/maker-squirrel",
+          "config": {
+            "name": "umlaut"
+          }
+        },
+        {
+          "name": "@electron-forge/maker-zip",
+          "platforms": [
+            "darwin"
+          ]
+        },
+        {
+          "name": "@electron-forge/maker-deb",
+          "config": {}
+        },
+        {
+          "name": "@electron-forge/maker-rpm",
+          "config": {}
+        }
+      ]
+    }
+  },
+  "dependencies": {
+    "electron-squirrel-startup": "^1.0.0"
+  },
   "devDependencies": {
-    "electron": "^12.0.5"
+    "@electron-forge/cli": "^6.0.0-beta.54",
+    "@electron-forge/maker-deb": "^6.0.0-beta.54",
+    "@electron-forge/maker-rpm": "^6.0.0-beta.54",
+    "@electron-forge/maker-squirrel": "^6.0.0-beta.54",
+    "@electron-forge/maker-zip": "^6.0.0-beta.54",
+    "electron": "12.0.5"
   }
 }
