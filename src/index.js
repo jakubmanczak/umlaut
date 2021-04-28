@@ -1,4 +1,5 @@
-const { app, Tray, Menu, BrowserWindow } = require('electron');
+const { app, Tray, Menu, BrowserWindow, globalShortcut } = require('electron');
+const { captureRejectionSymbol } = require('events');
 const path = require('path');
 let appIcon;
 // Handle creating/removing shortcuts on Windows when installing/uninstalling.
@@ -7,13 +8,24 @@ if (require('electron-squirrel-startup')) {
   app.quit();
 }
 
+const binds = [
+  {
+    stroke: 'Alt+a',
+    insert: 'ä',
+  },
+  {
+    stroke: 'Alt+o',
+    insert: 'ö',
+  },
+];
+
 const createWindow = () => {
   // Create the browser window.
   const mainWindow = new BrowserWindow({
     width: 350, // 350 // 750
     height: 240, // 315 // 750
     frame: false,
-    // resizable: false,
+    resizable: false,
     title: 'umlaut',
     icon: './umlaut.ico',
     webPreferences: {
@@ -22,7 +34,7 @@ const createWindow = () => {
       enableRemoteModule: true,
     },
   });
-  mainWindow.setAlwaysOnTop(true);
+  // mainWindow.setAlwaysOnTop(true);
   appIcon = new Tray('./umlaut.ico');
   appIcon.setToolTip('umlaut');
   let contextMenu = Menu.buildFromTemplate([
@@ -48,6 +60,12 @@ const createWindow = () => {
     } else {
       mainWindow.show();
     }
+  });
+
+  binds.map((bind) => {
+    globalShortcut.register(bind.stroke, () => {
+      console.log(bind.insert);
+    });
   });
 
   // and load the index.html of the app.
