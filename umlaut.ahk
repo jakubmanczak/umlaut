@@ -55,4 +55,16 @@ if GetKeyState("CapsLock", "T") = 0
 	send, {U+1E9E}
 else if GetKeyState("CapsLock", "T") = 1
 	send, {U+00DF}
+
+!Esc::
+   Suspend, Permit
+   SusToggle := !SusToggle
+   If (SusToggle)
+   {   Suspend, On
+   }
+   Else
+   {   Suspend Off
+   }
+   Return
+
 return
