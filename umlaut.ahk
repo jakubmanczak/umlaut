@@ -1,6 +1,17 @@
 ; Made by Jakub Mańczak in 2020
 ; manczak.net
 
+!Esc::
+   Suspend, Permit
+   SusToggle := !SusToggle
+   If (SusToggle)
+   {   Suspend, On
+   }
+   Else
+   {   Suspend Off
+   }
+return
+
 !a::
 if GetKeyState("CapsLock", "T") = 0
 	send, {U+00E4}
@@ -56,15 +67,5 @@ if GetKeyState("CapsLock", "T") = 0
 else if GetKeyState("CapsLock", "T") = 1
 	send, {U+00DF}
 
-!Esc::
-   Suspend, Permit
-   SusToggle := !SusToggle
-   If (SusToggle)
-   {   Suspend, On
-   }
-   Else
-   {   Suspend Off
-   }
- 
 
 return
