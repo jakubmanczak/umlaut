@@ -24,4 +24,6 @@ LALT + SHIFT + U = Ü
 
 LALT + SHIFT + S = ẞ
 
+LALT + ESC = Suspend and unsuspend the hotkeys
+
 Inverted while Caps Lock is pressed.
