@@ -65,6 +65,6 @@ else if GetKeyState("CapsLock", "T") = 1
    Else
    {   Suspend Off
    }
-   Return
+ 
 
 return
